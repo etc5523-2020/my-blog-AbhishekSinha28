@@ -22,20 +22,17 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(coronavirus)
 library(tidyverse)
 library(DT)
-library(formattable)
 library(lubridate)
 library(knitr)
 library(dplyr)
-#library(sparkline)
 library(reactable)
-library(htmltools)
 library(kableExtra)
 library(plotly)
 ```
 
 # Prelude
 
-On Jan 27, 2020, the Bavarian Health and Food Safety Authority, Germany, was informed of the first human case of infection with SARS-CoV-2 in a German national working for a company in the greater Munich area. Since then, Germany has been battling the Coronavirus pandemic. In this blog, we take a further look into the magnitude of the country's Covid-19 numbers.
+On Jan 27, 2020, the Bavarian Health and Food Safety Authority, Germany, was informed of the first human case of infection with SARS-CoV-2 in a German national working for a company in the greater Munich area[@lancet]. Since then, Germany has been battling the Coronavirus pandemic. In this blog, we take a further look into the magnitude of the country's Covid-19 numbers.
 
 # Data Description
 
@@ -59,7 +56,7 @@ The population data is collected from the United Nations Department for Economic
 #read population data
 world_population <- read_csv(here::here("data/WPP2019_TotalPopulationBySex.csv")) 
 
-# filter China
+# filter Germany
 pop_germany <- world_population %>% 
   filter(Location == "Germany",
          Time == 2019) %>% 
@@ -70,7 +67,27 @@ pop_germany <- world_population %>%
 
 # Analysis
 
-Table \@ref(tab:covid-rate) shows us the rates of confirmed cases, active cases, recovered cases and death from January to August in 2020.    
+To start with the analysis the Figure \@ref(fig:death-case) will help you visualize the total deaths and cases in Germany till August 31, 2020. It is also interactive, so you adjust the dates to get a better understanding of how the numbers change across different time periods.
+
+```{r death-case, fig.cap = "COVID Cumulative Cases and Deaths in Germany"}
+
+death_case <-  Germany %>% 
+  group_by(type,date) %>%
+  summarise(total_cases = sum(cases)) %>%
+  pivot_wider(names_from = type, 
+              values_from = total_cases) %>% rename(Date = date, 
+                      `Cumulative deaths` = death,
+                      `Cumulative cases` = confirmed) %>% select(-recovered)
+
+death_case$Date <- as.Date(death_case$Date)
+      
+death_case %>% datatable(filter = 'top') %>% 
+        formatStyle('Cumulative deaths', color = 'yellow', backgroundColor = 'grey') %>%
+        formatStyle('Cumulative cases', color = 'yellow', backgroundColor = 'grey') %>%
+        formatStyle('Date', color = 'yellow', backgroundColor = 'grey')
+```
+
+To further understand the rate of new cases the Table \@ref(tab:covid-rate) helps us to find the rates of confirmed cases, active cases, recovered cases and death from January to August in 2020. This table gives us an overview of how the situation changed in Germany from the time of the first case in January. We can notice that the rate of the confirmed cases increased drastically till April. It is then when Germany implemented strict lockdown as a measure to contain the spread of virus and thus we can see a decline in new cases. We can see that mortality rate has been kept low by Germany. THe confirmed cases rate also indicates that more people are being tested at early stages in Germany helping patients to recover.   
 
 ```{r covid-rate}
 # calculate rate for confirmed, death, recovered and active
@@ -104,18 +121,23 @@ Germany %>%
 ```
 
 
+```{r Covid-Cases-Rates, fig.cap = "COVID cases in Germany"}
+data_2_vis <- Germany %>% 
+  group_by(type,date) %>%
+  summarise(total_cases = sum(cases)) %>%
+  pivot_wider(names_from = type, 
+              values_from = total_cases) %>%
+  ggplot(aes(x = date, y = confirmed) ) +
+  geom_line(color = "#1F9E8E")  +
+  theme_bw() +
+  ggtitle("Confirmed Covid cases (rates)")
+
+ggplotly(data_2_vis)
+```
+
+The rates of corona virus cases in Germany over time is displayed in Figure \@ref(fig:Covid-Cases-Rates).
+From this analysis we can find a clear trend. This trend can give us an idea about the approach taken by the German government and how successful are those measures. We can see that the cases started to rise very quickly in Germany. To put a stop on this situation Germany implemented lockdown as a measure to contain the spread of virus and thus we can see a decline in new cases. This figure shows us how a strict lockdown helped Germany to contain the spread of virus which can be noticed through stringency index as well.
 
 # Acknowledgements
 
-This blog post constructed by R package as following:
-- distill @distill
-- tidyverse @tidyverse2
-- ggplot2 @ggplot2
-- knitr @knitr
-- kableExtra @kableExtra
-- lubridate @lubridate
-- DT @DT
-- htmltools @htmltools
-- plotly @plotly
-- gt @gt
-
+This blog post was constructed using following R packages. [@distill] [@tidyverse] [@ggplot2] [@knitr] [@kableExtra] [@lubridate] [@plotly] [@DT] [@dplyr] [@reactable]
