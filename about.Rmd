@@ -1,0 +1,17 @@
+---
+title: "About"
+description: |
+  Hello, welcome to my first blog
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+My name is Abhishek Sinha. I am a Masters student at Monash University majoring in Business Analytics.
+
+This blog provides an updated analysis of the Coronavirus pandemic in different parts of the world. It starts with analyzing the situation in **Germany**, one of the few countries that manage to bend the curve of new cases.
+
+There will be more interesting analysis coming soon for different countries.
+
+Enjoy !
