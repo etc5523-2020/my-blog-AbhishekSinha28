@@ -1,0 +1,19 @@
+---
+title: "Welcome to My ETC5523 Blog"
+description: |
+  Stay tuned for more interesting analysis and insights about the Corona Virus pandemic across the world.
+author:
+  - name: Abhishek Sinha 
+    url: asin0080@student.monash.edu
+date: 09-04-2020
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+

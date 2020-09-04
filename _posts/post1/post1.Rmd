@@ -1,0 +1,121 @@
+---
+title: "Blog 1: COVID-19 trends from Germany"
+description: |
+  A look into the coronavirus statistics in Germany!
+author:
+  - name: Abhishek Sinha 
+    email: asin0080@student.monash.edu
+    affiliation: ETC5523, Monash University
+date: 09-04-2020
+output:
+  distill::distill_article:
+    self_contained: false
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+
+```{r load-libraries}
+library(coronavirus)
+library(tidyverse)
+library(DT)
+library(formattable)
+library(lubridate)
+library(knitr)
+library(dplyr)
+#library(sparkline)
+library(reactable)
+library(htmltools)
+library(kableExtra)
+library(plotly)
+```
+
+# Prelude
+
+On Jan 27, 2020, the Bavarian Health and Food Safety Authority, Germany, was informed of the first human case of infection with SARS-CoV-2 in a German national working for a company in the greater Munich area. Since then, Germany has been battling the Coronavirus pandemic. In this blog, we take a further look into the magnitude of the country's Covid-19 numbers.
+
+# Data Description
+
+The data is obtained from R package `coronavirus`[@coronavirus] provided by RamiKrispin, which contains COVID-19 data from 188 countries or regions, and the raw data collected and arranged by the Johns Hopkins University Center for Systems Science and Engineering (JHU CCSE). In this blog, I will focus on China data, which contains 22,440 observations from 2020-01-22 to 2020-08-28.
+
+```{r inout-data}
+#load coronavirus dataset
+
+data("coronavirus")
+Germany <- coronavirus %>% 
+  filter(country=="Germany", date <= "2020-08-31") %>%
+  select(-province) %>% 
+  mutate(month = month(date, label = TRUE))
+```
+
+## Population data
+
+The population data is collected from the United Nations Department for Economic and Social Affairs(UNDESA). It was downloaded from [UNDESA]("https://population.un.org/wpp/Download/Standard/CSV/")[@desa2019world].   
+
+```{r}
+#read population data
+world_population <- read_csv(here::here("data/WPP2019_TotalPopulationBySex.csv")) 
+
+# filter China
+pop_germany <- world_population %>% 
+  filter(Location == "Germany",
+         Time == 2019) %>% 
+  select(PopTotal)
+
+```
+
+
+# Analysis
+
+Table \@ref(tab:covid-rate) shows us the rates of confirmed cases, active cases, recovered cases and death from January to August in 2020.    
+
+```{r covid-rate}
+# calculate rate for confirmed, death, recovered and active
+# the actual proportion is very small, so by adding 0.01 we can maintain constant rate and
+Germany %>% 
+  group_by(type,month) %>%
+  summarise(total_cases = sum(cases)) %>%
+  pivot_wider(names_from = type, 
+              values_from = total_cases) %>%
+  mutate(active = confirmed - death - recovered) %>%
+  mutate(active_total = cumsum(active),
+         population = pop_germany$PopTotal*1000) %>%
+  mutate(confirmed_rates = ((1000*confirmed/population) + 0.01),
+         active_rates = ((1000*active_total/population) +0.01),
+         recovered_rates = ((1000*recovered/population) +0.01),
+         dead_rates = ((1000*death/population) +0.01)) %>% 
+  select(-c(2:7)) %>% 
+  pivot_longer(2:5, 
+               names_to = "type", 
+               values_to = "rate") %>% 
+  mutate(rate = round(rate,4)) %>% 
+  pivot_wider(names_from = month, 
+              values_from = rate) %>% 
+  kable(caption = "Covid Cases Rate") %>% 
+  kable_styling(bootstrap_options = 
+                  c("striped", "condensed"), 
+                  full_width = F, 
+                  position = "center",
+                  latex_options = c("hold_position"))
+  
+```
+
+
+
+# Acknowledgements
+
+This blog post constructed by R package as following:
+- distill @distill
+- tidyverse @tidyverse2
+- ggplot2 @ggplot2
+- knitr @knitr
+- kableExtra @kableExtra
+- lubridate @lubridate
+- DT @DT
+- htmltools @htmltools
+- plotly @plotly
+- gt @gt
+
