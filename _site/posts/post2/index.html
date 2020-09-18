@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+<title>My ETC5523 Blog: Blog 2: COVID-19 trends from France</title>
+
+<meta property="description" itemprop="description" content="A look into the coronavirus statistics in France!"/>
+
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2020-09-18"/>
+<meta property="article:created" itemprop="dateCreated" content="2020-09-18"/>
+<meta name="article:author" content="Abhishek Sinha"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="My ETC5523 Blog: Blog 2: COVID-19 trends from France"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="A look into the coronavirus statistics in France!"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="My ETC5523 Blog"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary"/>
+<meta property="twitter:title" content="My ETC5523 Blog: Blog 2: COVID-19 trends from France"/>
+<meta property="twitter:description" content="A look into the coronavirus statistics in France!"/>
+
+<!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Coronavirus: The 2019 novel coronavirus covid-19 (2019-nCoV) dataset;citation_publication_date=2020;citation_author=Rami Krispin;citation_author=Jarrett Byrnes"/>
+  <meta name="citation_reference" content="citation_title=KableExtra: Construct complex table with ’kable’ and pipe syntax;citation_publication_date=2019;citation_author=Hao Zhu"/>
+  <meta name="citation_reference" content="citation_title=Distill: ’R markdown’ format for scientific and technical writing;citation_publication_date=2020;citation_author=JJ Allaire;citation_author=Rich Iannone;citation_author=Yihui Xie"/>
+  <meta name="citation_reference" content="citation_title=Welcome to the &lt;span class=&quot;nocase&quot;&gt;tidyverse&lt;/span&gt;;citation_publication_date=2019;citation_volume=4;citation_doi=10.21105/joss.01686;citation_author=Hadley Wickham;citation_author=Mara Averick;citation_author=Jennifer Bryan;citation_author=Winston Chang;citation_author=Lucy D’Agostino McGowan;citation_author=Romain François;citation_author=Garrett Grolemund;citation_author=Alex Hayes;citation_author=Lionel Henry;citation_author=Jim Hester;citation_author=Max Kuhn;citation_author=Thomas Lin Pedersen;citation_author=Evan Miller;citation_author=Stephan Milton Bache;citation_author=Kirill Müller;citation_author=Jeroen Ooms;citation_author=David Robinson;citation_author=Dana Paige Seidel;citation_author=Vitalie Spinu;citation_author=Kohske Takahashi;citation_author=Davis Vaughan;citation_author=Claus Wilke;citation_author=Kara Woo;citation_author=Hiroaki Yutani"/>
+  <meta name="citation_reference" content="citation_title=Knitr: A general-purpose package for dynamic report generation in r;citation_publication_date=2020;citation_author=Yihui Xie"/>
+  <meta name="citation_reference" content="citation_title=Dates and times made easy with &lt;span class=&quot;nocase&quot;&gt;lubridate&lt;/span&gt;;citation_publication_date=2011;citation_volume=40;citation_author=Garrett Grolemund;citation_author=Hadley Wickham"/>
+  <meta name="citation_reference" content="citation_title=Interactive web-based data visualization with r, plotly, and shiny;citation_publication_date=2020;citation_publisher=Chapman; Hall/CRC;citation_author=Carson Sievert"/>
+  <meta name="citation_reference" content="citation_title=Dplyr: A grammar of data manipulation;citation_publication_date=2020;citation_author=Hadley Wickham;citation_author=Romain François;citation_author=Lionel  Henry;citation_author=Kirill Müller"/>
+  <meta name="citation_reference" content="citation_title=Dplyr: A grammar of data manipulation;citation_publication_date=2020;citation_author=Hadley Wickham;citation_author=Romain François;citation_author=Lionel  Henry;citation_author=Kirill Müller"/>
+  <meta name="citation_reference" content="citation_title=Xts: EXtensible time series;citation_publication_date=2020;citation_author=Jeffrey A. Ryan;citation_author=Joshua M. Ulrich"/>
+  <meta name="citation_reference" content="citation_title=Dygraphs: Interface to ’dygraphs’ interactive time series charting library;citation_publication_date=2018;citation_author=Dan Vanderkam;citation_author=JJ Allaire;citation_author=Jonathan Owen;citation_author=Daniel Gromer;citation_author=Benoit Thieurmel"/>
+  <meta name="citation_reference" content="citation_publication_date=2020;citation_author= Wikipedia"/>
+  <meta name="citation_reference" content="citation_publication_date=2020;citation_author=The Sydney Morning Herald"/>
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Blog 2: COVID-19 trends from France"]},{"type":"character","attributes":{},"value":["A look into the coronavirus statistics in France!"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","email","affiliation"]}},"value":[{"type":"character","attributes":{},"value":["Abhishek Sinha"]},{"type":"character","attributes":{},"value":["asin0080@student.monash.edu"]},{"type":"character","attributes":{},"value":["ETC5523, Monash University"]}]}]},{"type":"character","attributes":{},"value":["09-18-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["references.bib"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["post2_files/bowser-1.9.3/bowser.min.js","post2_files/crosstalk-1.1.0.1/css/crosstalk.css","post2_files/crosstalk-1.1.0.1/js/crosstalk.js","post2_files/crosstalk-1.1.0.1/js/crosstalk.js.map","post2_files/crosstalk-1.1.0.1/js/crosstalk.min.js","post2_files/crosstalk-1.1.0.1/js/crosstalk.min.js.map","post2_files/distill-2.2.21/template.v2.js","post2_files/Dygraph.Plugins.Crosshair-1.0/crosshair.js","post2_files/dygraphs-1.1.1/dygraph-combined-dev.js","post2_files/dygraphs-1.1.1/dygraph-combined.js","post2_files/dygraphs-1.1.1/dygraph.css","post2_files/dygraphs-1.1.1/shapes.js","post2_files/dygraphs-binding-1.1.1.6/dygraphs.js","post2_files/htmlwidgets-1.5.1/htmlwidgets.js","post2_files/jquery-1.11.3/jquery-AUTHORS.txt","post2_files/jquery-1.11.3/jquery.js","post2_files/jquery-1.11.3/jquery.min.js","post2_files/jquery-1.11.3/jquery.min.map","post2_files/kePrint-0.0.1/kePrint.js","post2_files/moment-2.8.4/moment-timezone-with-data.js","post2_files/moment-2.8.4/moment.js","post2_files/moment-fquarter-1.0.0/moment-fquarter.min.js","post2_files/moment-timezone-0.2.5/moment-timezone-with-data.js","post2_files/moment-timezone-0.2.5/moment.js","post2_files/plotly-binding-4.9.2.1/plotly.js","post2_files/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css","post2_files/plotly-main-1.52.2/plotly-latest.min.js","post2_files/typedarray-0.1/typedarray.min.js","post2_files/webcomponents-2.0.0/webcomponents.js","references.bib"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #455a64;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative;}
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+</style>
+
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for table of contents */
+
+.d-toc {
+  color: rgba(0,0,0,0.8);
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.d-toc-header {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.3em;
+}
+
+.d-toc a {
+  border-bottom: none;
+}
+
+.d-toc ul {
+  padding-left: 0;
+}
+
+.d-toc li>ul {
+  padding-top: 0.8em;
+  padding-left: 16px;
+  margin-bottom: 0.6em;
+}
+
+.d-toc ul,
+.d-toc li {
+  list-style-type: none;
+}
+
+.d-toc li {
+  margin-bottom: 0.9em;
+}
+
+.d-toc-separator {
+  margin-top: 20px;
+  margin-bottom: 2em;
+}
+
+.d-article-with-toc {
+  border-top: none;
+  padding-top: 0;
+}
+
+
+
+/* Tweak code blocks (note that this CSS is repeated above in an injection
+   into the d-code shadow dom) */
+
+d-code {
+  overflow-x: auto !important;
+}
+
+pre.d-code code.d-code {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+pre.text-output {
+
+  font-size: 12px;
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+@media(min-width: 768px) {
+
+d-code {
+  overflow-x: visible !important;
+}
+
+pre.d-code code.d-code  {
+    padding-left: 18px;
+    font-size: 14px;
+}
+pre.text-output {
+  font-size: 14px;
+}
+}
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+.sidebar-section.custom {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.custom p {
+  margin-bottom: 0.5em;
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // create d-bibliography
+  var bibliography = $('<d-bibliography></d-bibliography>');
+  $('#distill-bibliography').wrap(bibliography);
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace citations with <d-cite>
+  $('.citation').each(function(i, val) {
+    appendix = true;
+    var cites = $(this).attr('data-cites').split(" ");
+    var dt_cite = $('<d-cite></d-cite>');
+    dt_cite.attr('key', cites.join());
+    $(this).replaceWith(dt_cite);
+  });
+  // remove refs
+  $('#refs').remove();
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-toc a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // replace code blocks with d-code
+  $('pre>code').each(function(i, val) {
+    var code = $(this);
+    var pre = code.parent();
+    var clz = "";
+    var language = pre.attr('class');
+    if (language) {
+      // map unknown languages to "clike" (without this they just dissapear)
+      if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                               "javascript", "js", "julia", "lua", "markdown",
+                               "markup", "mathml", "python", "svg", "xml"]) == -1)
+        language = "clike";
+      language = ' language="' + language + '"';
+      var dt_code = $('<d-code block' + language + clz + '></d-code>');
+      dt_code.text(code.text());
+      pre.replaceWith(dt_code);
+    } else {
+      code.addClass('text-output').unwrap().changeElementType('pre');
+    }
+  });
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('d-code, pre.text-output, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // table of contents
+    if (have_authors) // adjust border if we are in authors
+      $('.d-toc').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+    $('d-code').each(function(i, val) {
+      var style = document.createElement('style');
+      style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                        '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+      if (this.shadowRoot)
+        this.shadowRoot.appendChild(style);
+    });
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-toc-header').remove();
+  $('.d-toc').remove();
+  $('.d-toc-separator').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+  <script src="../../site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+  <script src="../../site_libs/plotly-binding-4.9.2.1/plotly.js"></script>
+  <script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <link href="../../site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+  <script src="../../site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+  <link href="../../site_libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+  <script src="../../site_libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+  <link href="../../site_libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
+  <script src="../../site_libs/dygraphs-1.1.1/dygraph-combined.js"></script>
+  <script src="../../site_libs/dygraphs-1.1.1/shapes.js"></script>
+  <script src="../../site_libs/moment-2.8.4/moment.js"></script>
+  <script src="../../site_libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+  <script src="../../site_libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
+  <script src="../../site_libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
+  <script src="../../site_libs/Dygraph.Plugins.Crosshair-1.0/crosshair.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Blog 2: COVID-19 trends from France","description":"A look into the coronavirus statistics in France!","authors":[{"author":"Abhishek Sinha","authorURL":"#","affiliation":"ETC5523, Monash University","affiliationURL":"#"}],"publishedDate":"2020-09-18T00:00:00.000+10:00","citationText":"Sinha, 2020"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a href="../../index.html" class="title">My ETC5523 Blog</a>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Home</a>
+<a href="../../about.html">About</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Blog 2: COVID-19 trends from France</h1>
+<p>A look into the coronavirus statistics in France!</p>
+</div>
+
+<div class="d-byline">
+  Abhishek Sinha  (ETC5523, Monash University)
+  
+<br/>09-18-2020
+</div>
+
+<div class="d-article">
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h1 id="prelude">Prelude</h1>
+<p>On Jan 24, 2020, the French Governemnt, confirmed the first human case of infection with SARS-CoV-2 in both Europe and France in Bordeaux<span class="citation" data-cites="wikipedia">(Wikipedia <a href="#ref-wikipedia">2020</a>)</span>. The first five confirmed cases were all individuals who had recently arrived from China. Since then, France has been facing the heat of the Coronavirus pandemic. In this blog, we take a further look into the magnitude of the country’s Covid-19 numbers.</p>
+<h1 id="data-description">Data Description</h1>
+<p>The data is obtained from R package <code>coronavirus</code><span class="citation" data-cites="corona">(Krispin and Byrnes <a href="#ref-corona">2020</a>)</span> provided by RamiKrispin, which contains COVID-19 data from 188 countries or regions, and the raw data collected and arranged by the Johns Hopkins University Center for Systems Science and Engineering (JHU CCSE). In this blog, I will focus on France data, which contains 7,920 observations from 2020-01-22 to 2020-09-17.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h2 id="population-data">Population data</h2>
+<p>The population data is collected from the United Nations Department for Economic and Social Affairs(UNDESA). It was downloaded from <a href="%22https://population.un.org/wpp/Download/Standard/CSV/%22">UNDESA</a>.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h1 id="analysis">Analysis</h1>
+<p>To understand the rate of new cases in France, the Table <a href="#tab:covid-rate">1</a> helps us to find the rates of confirmed cases, active cases, recovered cases and death from January to date in 2020. This table gives us an overview of how the situation changed in France from the time of the first case in January. We can notice that the rate of the confirmed cases increased drastically in April. It is then when France implemented strict lockdown as a measure to contain the spread of virus and thus we can see a decline in new cases. We can see that mortality rate has been kept low by France. We can also notice a hint of possible second wave in France as confirmed case rates reached an all time high in September<span class="citation" data-cites="smh">(Herald <a href="#ref-smh">2020</a>)</span>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class="table table-striped table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:covid-rate">Table 1: </span>Covid Cases Rate in France
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+type
+</th>
+<th style="text-align:right;">
+Jan
+</th>
+<th style="text-align:right;">
+Feb
+</th>
+<th style="text-align:right;">
+Mar
+</th>
+<th style="text-align:right;">
+Apr
+</th>
+<th style="text-align:right;">
+May
+</th>
+<th style="text-align:right;">
+Jun
+</th>
+<th style="text-align:right;">
+Jul
+</th>
+<th style="text-align:right;">
+Aug
+</th>
+<th style="text-align:right;">
+Sep
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+confirmed_rates
+</td>
+<td style="text-align:right;">
+0.0101
+</td>
+<td style="text-align:right;">
+0.0115
+</td>
+<td style="text-align:right;">
+0.8196
+</td>
+<td style="text-align:right;">
+1.7676
+</td>
+<td style="text-align:right;">
+0.3433
+</td>
+<td style="text-align:right;">
+0.2104
+</td>
+<td style="text-align:right;">
+0.3652
+</td>
+<td style="text-align:right;">
+1.4500
+</td>
+<td style="text-align:right;">
+2.0871
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+active_rates
+</td>
+<td style="text-align:right;">
+0.0101
+</td>
+<td style="text-align:right;">
+0.0113
+</td>
+<td style="text-align:right;">
+0.6208
+</td>
+<td style="text-align:right;">
+1.4447
+</td>
+<td style="text-align:right;">
+1.4184
+</td>
+<td style="text-align:right;">
+1.4812
+</td>
+<td style="text-align:right;">
+1.7475
+</td>
+<td style="text-align:right;">
+3.1047
+</td>
+<td style="text-align:right;">
+5.0983
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+recovered_rates
+</td>
+<td style="text-align:right;">
+0.0100
+</td>
+<td style="text-align:right;">
+0.0102
+</td>
+<td style="text-align:right;">
+0.1559
+</td>
+<td style="text-align:right;">
+0.6236
+</td>
+<td style="text-align:right;">
+0.3017
+</td>
+<td style="text-align:right;">
+0.1317
+</td>
+<td style="text-align:right;">
+0.0924
+</td>
+<td style="text-align:right;">
+0.0872
+</td>
+<td style="text-align:right;">
+0.0864
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dead_rates
+</td>
+<td style="text-align:right;">
+0.0100
+</td>
+<td style="text-align:right;">
+0.0100
+</td>
+<td style="text-align:right;">
+0.0642
+</td>
+<td style="text-align:right;">
+0.3301
+</td>
+<td style="text-align:right;">
+0.0780
+</td>
+<td style="text-align:right;">
+0.0260
+</td>
+<td style="text-align:right;">
+0.0165
+</td>
+<td style="text-align:right;">
+0.0157
+</td>
+<td style="text-align:right;">
+0.0171
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span id="fig:Covid-Cases-Rates"></span>
+<div id="htmlwidget-cd2d455adfa4f567cad3" style="width:624px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cd2d455adfa4f567cad3">{"x":{"data":[{"x":[18283,18284,18285,18286,18287,18288,18289,18290,18291,18292,18293,18294,18295,18296,18297,18298,18299,18300,18301,18302,18303,18304,18305,18306,18307,18308,18309,18310,18311,18312,18313,18314,18315,18316,18317,18318,18319,18320,18321,18322,18323,18324,18325,18326,18327,18328,18329,18330,18331,18332,18333,18334,18335,18336,18337,18338,18339,18340,18341,18342,18343,18344,18345,18346,18347,18348,18349,18350,18351,18352,18353,18354,18355,18356,18357,18358,18359,18360,18361,18362,18363,18364,18365,18366,18367,18368,18369,18370,18371,18372,18373,18374,18375,18376,18377,18378,18379,18380,18381,18382,18383,18384,18385,18386,18387,18388,18389,18390,18391,18392,18393,18394,18395,18396,18397,18398,18399,18400,18401,18402,18403,18404,18405,18406,18407,18408,18409,18410,18411,18412,18413,18414,18415,18416,18417,18418,18419,18420,18421,18422,18423,18424,18425,18426,18427,18428,18429,18430,18431,18432,18433,18434,18435,18436,18437,18438,18439,18440,18441,18442,18443,18444,18445,18446,18447,18448,18449,18450,18451,18452,18453,18454,18455,18456,18457,18458,18459,18460,18461,18462,18463,18464,18465,18466,18467,18468,18469,18470,18471,18472,18473,18474,18475,18476,18477,18478,18479,18480,18481,18482,18483,18484,18485,18486,18487,18488,18489,18490,18491,18492,18493,18494,18495,18496,18497,18498,18499,18500,18501,18502,18503,18504,18505,18506,18507,18508,18509,18510,18511,18512,18513,18514,18515,18516,18517,18518,18519,18520,18521,18522],"y":[0,0,2,1,0,0,1,1,0,0,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,2,4,20,19,43,30,61,13,84,92,276,303,177,83,575,499,0,1388,815,36,2151,1032,1409,1846,1788,1705,1780,3880,2499,2978,3951,3851,4703,2603,4462,7657,4922,2180,5273,4298,1912,3931,3820,3894,4309,4372,3125,26849,3682,4971,3220,12490,2009,2,4925,2382,2775,-2188,2323,1649,1692,576,3743,3090,-2510,756,6,1213,407,658,1104,3537,694,1284,580,312,453,802,-165,810,636,0,63,358,882,767,251,403,340,15,358,-220,191,3326,559,1829,257,339,-766,352,767,611,579,343,211,404,545,425,727,526,407,152,344,458,467,811,641,284,373,517,81,0,1588,0,-719,2046,541,918,659,582,0,0,1375,475,0,1284,659,0,0,1625,0,928,534,841,0,0,2080,584,998,1062,1130,4,0,2551,725,0,1392,2728,1,0,0,3378,0,2734,3897,1,29,4112,6,4733,8,5559,3310,0,3568,1,0,0,15426,3602,4897,1955,3488,5472,6111,7462,0,10866,3173,4982,7092,7160,9047,0,1,19906,6544,9574,8951,9647,921,82,22977,8035,9964,10397],"text":["date: 2020-01-22<br />confirmed:     0","date: 2020-01-23<br />confirmed:     0","date: 2020-01-24<br />confirmed:     2","date: 2020-01-25<br />confirmed:     1","date: 2020-01-26<br />confirmed:     0","date: 2020-01-27<br />confirmed:     0","date: 2020-01-28<br />confirmed:     1","date: 2020-01-29<br />confirmed:     1","date: 2020-01-30<br />confirmed:     0","date: 2020-01-31<br />confirmed:     0","date: 2020-02-01<br />confirmed:     1","date: 2020-02-02<br />confirmed:     0","date: 2020-02-03<br />confirmed:     0","date: 2020-02-04<br />confirmed:     0","date: 2020-02-05<br />confirmed:     0","date: 2020-02-06<br />confirmed:     0","date: 2020-02-07<br />confirmed:     0","date: 2020-02-08<br />confirmed:     5","date: 2020-02-09<br />confirmed:     0","date: 2020-02-10<br />confirmed:     0","date: 2020-02-11<br />confirmed:     0","date: 2020-02-12<br />confirmed:     0","date: 2020-02-13<br />confirmed:     0","date: 2020-02-14<br />confirmed:     0","date: 2020-02-15<br />confirmed:     1","date: 2020-02-16<br />confirmed:     0","date: 2020-02-17<br />confirmed:     0","date: 2020-02-18<br />confirmed:     0","date: 2020-02-19<br />confirmed:     0","date: 2020-02-20<br />confirmed:     0","date: 2020-02-21<br />confirmed:     0","date: 2020-02-22<br />confirmed:     0","date: 2020-02-23<br />confirmed:     0","date: 2020-02-24<br />confirmed:     0","date: 2020-02-25<br />confirmed:     2","date: 2020-02-26<br />confirmed:     4","date: 2020-02-27<br />confirmed:    20","date: 2020-02-28<br />confirmed:    19","date: 2020-02-29<br />confirmed:    43","date: 2020-03-01<br />confirmed:    30","date: 2020-03-02<br />confirmed:    61","date: 2020-03-03<br />confirmed:    13","date: 2020-03-04<br />confirmed:    84","date: 2020-03-05<br />confirmed:    92","date: 2020-03-06<br />confirmed:   276","date: 2020-03-07<br />confirmed:   303","date: 2020-03-08<br />confirmed:   177","date: 2020-03-09<br />confirmed:    83","date: 2020-03-10<br />confirmed:   575","date: 2020-03-11<br />confirmed:   499","date: 2020-03-12<br />confirmed:     0","date: 2020-03-13<br />confirmed:  1388","date: 2020-03-14<br />confirmed:   815","date: 2020-03-15<br />confirmed:    36","date: 2020-03-16<br />confirmed:  2151","date: 2020-03-17<br />confirmed:  1032","date: 2020-03-18<br />confirmed:  1409","date: 2020-03-19<br />confirmed:  1846","date: 2020-03-20<br />confirmed:  1788","date: 2020-03-21<br />confirmed:  1705","date: 2020-03-22<br />confirmed:  1780","date: 2020-03-23<br />confirmed:  3880","date: 2020-03-24<br />confirmed:  2499","date: 2020-03-25<br />confirmed:  2978","date: 2020-03-26<br />confirmed:  3951","date: 2020-03-27<br />confirmed:  3851","date: 2020-03-28<br />confirmed:  4703","date: 2020-03-29<br />confirmed:  2603","date: 2020-03-30<br />confirmed:  4462","date: 2020-03-31<br />confirmed:  7657","date: 2020-04-01<br />confirmed:  4922","date: 2020-04-02<br />confirmed:  2180","date: 2020-04-03<br />confirmed:  5273","date: 2020-04-04<br />confirmed:  4298","date: 2020-04-05<br />confirmed:  1912","date: 2020-04-06<br />confirmed:  3931","date: 2020-04-07<br />confirmed:  3820","date: 2020-04-08<br />confirmed:  3894","date: 2020-04-09<br />confirmed:  4309","date: 2020-04-10<br />confirmed:  4372","date: 2020-04-11<br />confirmed:  3125","date: 2020-04-12<br />confirmed: 26849","date: 2020-04-13<br />confirmed:  3682","date: 2020-04-14<br />confirmed:  4971","date: 2020-04-15<br />confirmed:  3220","date: 2020-04-16<br />confirmed: 12490","date: 2020-04-17<br />confirmed:  2009","date: 2020-04-18<br />confirmed:     2","date: 2020-04-19<br />confirmed:  4925","date: 2020-04-20<br />confirmed:  2382","date: 2020-04-21<br />confirmed:  2775","date: 2020-04-22<br />confirmed: -2188","date: 2020-04-23<br />confirmed:  2323","date: 2020-04-24<br />confirmed:  1649","date: 2020-04-25<br />confirmed:  1692","date: 2020-04-26<br />confirmed:   576","date: 2020-04-27<br />confirmed:  3743","date: 2020-04-28<br />confirmed:  3090","date: 2020-04-29<br />confirmed: -2510","date: 2020-04-30<br />confirmed:   756","date: 2020-05-01<br />confirmed:     6","date: 2020-05-02<br />confirmed:  1213","date: 2020-05-03<br />confirmed:   407","date: 2020-05-04<br />confirmed:   658","date: 2020-05-05<br />confirmed:  1104","date: 2020-05-06<br />confirmed:  3537","date: 2020-05-07<br />confirmed:   694","date: 2020-05-08<br />confirmed:  1284","date: 2020-05-09<br />confirmed:   580","date: 2020-05-10<br />confirmed:   312","date: 2020-05-11<br />confirmed:   453","date: 2020-05-12<br />confirmed:   802","date: 2020-05-13<br />confirmed:  -165","date: 2020-05-14<br />confirmed:   810","date: 2020-05-15<br />confirmed:   636","date: 2020-05-16<br />confirmed:     0","date: 2020-05-17<br />confirmed:    63","date: 2020-05-18<br />confirmed:   358","date: 2020-05-19<br />confirmed:   882","date: 2020-05-20<br />confirmed:   767","date: 2020-05-21<br />confirmed:   251","date: 2020-05-22<br />confirmed:   403","date: 2020-05-23<br />confirmed:   340","date: 2020-05-24<br />confirmed:    15","date: 2020-05-25<br />confirmed:   358","date: 2020-05-26<br />confirmed:  -220","date: 2020-05-27<br />confirmed:   191","date: 2020-05-28<br />confirmed:  3326","date: 2020-05-29<br />confirmed:   559","date: 2020-05-30<br />confirmed:  1829","date: 2020-05-31<br />confirmed:   257","date: 2020-06-01<br />confirmed:   339","date: 2020-06-02<br />confirmed:  -766","date: 2020-06-03<br />confirmed:   352","date: 2020-06-04<br />confirmed:   767","date: 2020-06-05<br />confirmed:   611","date: 2020-06-06<br />confirmed:   579","date: 2020-06-07<br />confirmed:   343","date: 2020-06-08<br />confirmed:   211","date: 2020-06-09<br />confirmed:   404","date: 2020-06-10<br />confirmed:   545","date: 2020-06-11<br />confirmed:   425","date: 2020-06-12<br />confirmed:   727","date: 2020-06-13<br />confirmed:   526","date: 2020-06-14<br />confirmed:   407","date: 2020-06-15<br />confirmed:   152","date: 2020-06-16<br />confirmed:   344","date: 2020-06-17<br />confirmed:   458","date: 2020-06-18<br />confirmed:   467","date: 2020-06-19<br />confirmed:   811","date: 2020-06-20<br />confirmed:   641","date: 2020-06-21<br />confirmed:   284","date: 2020-06-22<br />confirmed:   373","date: 2020-06-23<br />confirmed:   517","date: 2020-06-24<br />confirmed:    81","date: 2020-06-25<br />confirmed:     0","date: 2020-06-26<br />confirmed:  1588","date: 2020-06-27<br />confirmed:     0","date: 2020-06-28<br />confirmed:  -719","date: 2020-06-29<br />confirmed:  2046","date: 2020-06-30<br />confirmed:   541","date: 2020-07-01<br />confirmed:   918","date: 2020-07-02<br />confirmed:   659","date: 2020-07-03<br />confirmed:   582","date: 2020-07-04<br />confirmed:     0","date: 2020-07-05<br />confirmed:     0","date: 2020-07-06<br />confirmed:  1375","date: 2020-07-07<br />confirmed:   475","date: 2020-07-08<br />confirmed:     0","date: 2020-07-09<br />confirmed:  1284","date: 2020-07-10<br />confirmed:   659","date: 2020-07-11<br />confirmed:     0","date: 2020-07-12<br />confirmed:     0","date: 2020-07-13<br />confirmed:  1625","date: 2020-07-14<br />confirmed:     0","date: 2020-07-15<br />confirmed:   928","date: 2020-07-16<br />confirmed:   534","date: 2020-07-17<br />confirmed:   841","date: 2020-07-18<br />confirmed:     0","date: 2020-07-19<br />confirmed:     0","date: 2020-07-20<br />confirmed:  2080","date: 2020-07-21<br />confirmed:   584","date: 2020-07-22<br />confirmed:   998","date: 2020-07-23<br />confirmed:  1062","date: 2020-07-24<br />confirmed:  1130","date: 2020-07-25<br />confirmed:     4","date: 2020-07-26<br />confirmed:     0","date: 2020-07-27<br />confirmed:  2551","date: 2020-07-28<br />confirmed:   725","date: 2020-07-29<br />confirmed:     0","date: 2020-07-30<br />confirmed:  1392","date: 2020-07-31<br />confirmed:  2728","date: 2020-08-01<br />confirmed:     1","date: 2020-08-02<br />confirmed:     0","date: 2020-08-03<br />confirmed:     0","date: 2020-08-04<br />confirmed:  3378","date: 2020-08-05<br />confirmed:     0","date: 2020-08-06<br />confirmed:  2734","date: 2020-08-07<br />confirmed:  3897","date: 2020-08-08<br />confirmed:     1","date: 2020-08-09<br />confirmed:    29","date: 2020-08-10<br />confirmed:  4112","date: 2020-08-11<br />confirmed:     6","date: 2020-08-12<br />confirmed:  4733","date: 2020-08-13<br />confirmed:     8","date: 2020-08-14<br />confirmed:  5559","date: 2020-08-15<br />confirmed:  3310","date: 2020-08-16<br />confirmed:     0","date: 2020-08-17<br />confirmed:  3568","date: 2020-08-18<br />confirmed:     1","date: 2020-08-19<br />confirmed:     0","date: 2020-08-20<br />confirmed:     0","date: 2020-08-21<br />confirmed: 15426","date: 2020-08-22<br />confirmed:  3602","date: 2020-08-23<br />confirmed:  4897","date: 2020-08-24<br />confirmed:  1955","date: 2020-08-25<br />confirmed:  3488","date: 2020-08-26<br />confirmed:  5472","date: 2020-08-27<br />confirmed:  6111","date: 2020-08-28<br />confirmed:  7462","date: 2020-08-29<br />confirmed:     0","date: 2020-08-30<br />confirmed: 10866","date: 2020-08-31<br />confirmed:  3173","date: 2020-09-01<br />confirmed:  4982","date: 2020-09-02<br />confirmed:  7092","date: 2020-09-03<br />confirmed:  7160","date: 2020-09-04<br />confirmed:  9047","date: 2020-09-05<br />confirmed:     0","date: 2020-09-06<br />confirmed:     1","date: 2020-09-07<br />confirmed: 19906","date: 2020-09-08<br />confirmed:  6544","date: 2020-09-09<br />confirmed:  9574","date: 2020-09-10<br />confirmed:  8951","date: 2020-09-11<br />confirmed:  9647","date: 2020-09-12<br />confirmed:   921","date: 2020-09-13<br />confirmed:    82","date: 2020-09-14<br />confirmed: 22977","date: 2020-09-15<br />confirmed:  8035","date: 2020-09-16<br />confirmed:  9964","date: 2020-09-17<br />confirmed: 10397"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(31,158,142,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":45.4063926940639,"r":7.30593607305936,"b":41.8264840182648,"l":54.7945205479452},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Confirmed Covid cases (rates) in France","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[18271.05,18533.95],"tickmode":"array","ticktext":["Apr","Jul"],"tickvals":[18353,18444],"categoryorder":"array","categoryarray":["Apr","Jul"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"date","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3977.95,28316.95],"tickmode":"array","ticktext":["0","10000","20000"],"tickvals":[0,10000,20000],"categoryorder":"array","categoryarray":["0","10000","20000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"confirmed","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"1df94bd7ea57":{"x":{},"y":{},"type":"scatter"}},"cur_data":"1df94bd7ea57","visdat":{"1df94bd7ea57":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p class="caption">
+Figure 1: COVID cases in France
+</p>
+</div>
+</div>
+<p>The rates of corona virus cases in France over time is displayed in Figure <a href="#fig:Covid-Cases-Rates">1</a>. From this figure we can look at the trend. This trend can give us an idea about the approach taken by the French government and how successful are those measures. We can see that the cases started to rise very quickly in France, reaching its peak in early April. This sudden rise can be attributed to the Mulhouse cluster outbreak. The Christian Open Door Church annual gathering between 17 and 24 February in Mulhouse was attended by about 2,500 people, at least half of whom are believed to have contracted the virus. To put a stop on this sudden rise the French President ‘Emmanuel Macron’ announced the beginning of a lockdown period from the 17 March at noon. It was initially planned for 15 days, then for 30 days, but on 13 April, he announced that the lockdown period would be extended until 11 May.<span class="citation" data-cites="wikipedia">(Wikipedia <a href="#ref-wikipedia">2020</a>)</span></p>
+<h2 id="confirmed-covid-19-cases-in-the-france-overtime">Confirmed COVID-19 Cases in the France Overtime</h2>
+<p>Interactive display showing the confirmed number of COVID-19 cases in the France since the first case.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:confirmed-plot"></span>
+<div id="htmlwidget-2be1aa5beb3db010dd5f" style="width:624px;height:384px;" class="dygraphs html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2be1aa5beb3db010dd5f">{"x":{"attrs":{"axes":{"x":{"pixelsPerLabel":60,"drawAxis":true},"y":{"drawAxis":true}},"colors":["grey","grey"],"highlightSeriesOpts":[],"labels":["day","Number of New Daily Cases"],"legend":"auto","retainDateWindow":false,"stackedGraph":false,"fillGraph":true,"fillAlpha":0.2,"stepPlot":false,"drawPoints":false,"pointSize":1,"drawGapEdgePoints":false,"connectSeparatedPoints":false,"strokeWidth":1,"strokeBorderColor":"white","colorValue":0.5,"colorSaturation":1,"includeZero":false,"drawAxesAtZero":false,"logscale":false,"axisTickSize":3,"axisLineColor":"black","axisLineWidth":0.3,"axisLabelColor":"black","axisLabelFontSize":14,"axisLabelWidth":60,"drawGrid":false,"gridLineWidth":0.3,"rightGap":5,"digitsAfterDecimal":2,"labelsKMB":false,"labelsKMG2":false,"labelsUTC":true,"maxNumberWidth":6,"animatedZooms":false,"mobileDisableYTouch":true,"disableZoom":false,"showRangeSelector":true,"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":"midnightblue","rangeSelectorPlotStrokeColor":"midnightblue","interactionModel":"Dygraph.Interaction.defaultModel","highlightCircleSize":6,"highlightSeriesBackgroundAlpha":0.2,"hideOverlayOnMouseOut":false,"showRoller":true,"rollPeriod":1,"ylabel":"Number of Cases","xlabel":"Date","series":{"Number of New Daily Cases":{"axis":"y"}}},"scale":"daily","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2020-01-22T00:00:00.000Z","2020-01-23T00:00:00.000Z","2020-01-24T00:00:00.000Z","2020-01-25T00:00:00.000Z","2020-01-26T00:00:00.000Z","2020-01-27T00:00:00.000Z","2020-01-28T00:00:00.000Z","2020-01-29T00:00:00.000Z","2020-01-30T00:00:00.000Z","2020-01-31T00:00:00.000Z","2020-02-01T00:00:00.000Z","2020-02-02T00:00:00.000Z","2020-02-03T00:00:00.000Z","2020-02-04T00:00:00.000Z","2020-02-05T00:00:00.000Z","2020-02-06T00:00:00.000Z","2020-02-07T00:00:00.000Z","2020-02-08T00:00:00.000Z","2020-02-09T00:00:00.000Z","2020-02-10T00:00:00.000Z","2020-02-11T00:00:00.000Z","2020-02-12T00:00:00.000Z","2020-02-13T00:00:00.000Z","2020-02-14T00:00:00.000Z","2020-02-15T00:00:00.000Z","2020-02-16T00:00:00.000Z","2020-02-17T00:00:00.000Z","2020-02-18T00:00:00.000Z","2020-02-19T00:00:00.000Z","2020-02-20T00:00:00.000Z","2020-02-21T00:00:00.000Z","2020-02-22T00:00:00.000Z","2020-02-23T00:00:00.000Z","2020-02-24T00:00:00.000Z","2020-02-25T00:00:00.000Z","2020-02-26T00:00:00.000Z","2020-02-27T00:00:00.000Z","2020-02-28T00:00:00.000Z","2020-02-29T00:00:00.000Z","2020-03-01T00:00:00.000Z","2020-03-02T00:00:00.000Z","2020-03-03T00:00:00.000Z","2020-03-04T00:00:00.000Z","2020-03-05T00:00:00.000Z","2020-03-06T00:00:00.000Z","2020-03-07T00:00:00.000Z","2020-03-08T00:00:00.000Z","2020-03-09T00:00:00.000Z","2020-03-10T00:00:00.000Z","2020-03-11T00:00:00.000Z","2020-03-12T00:00:00.000Z","2020-03-13T00:00:00.000Z","2020-03-14T00:00:00.000Z","2020-03-15T00:00:00.000Z","2020-03-16T00:00:00.000Z","2020-03-17T00:00:00.000Z","2020-03-18T00:00:00.000Z","2020-03-19T00:00:00.000Z","2020-03-20T00:00:00.000Z","2020-03-21T00:00:00.000Z","2020-03-22T00:00:00.000Z","2020-03-23T00:00:00.000Z","2020-03-24T00:00:00.000Z","2020-03-25T00:00:00.000Z","2020-03-26T00:00:00.000Z","2020-03-27T00:00:00.000Z","2020-03-28T00:00:00.000Z","2020-03-29T00:00:00.000Z","2020-03-30T00:00:00.000Z","2020-03-31T00:00:00.000Z","2020-04-01T00:00:00.000Z","2020-04-02T00:00:00.000Z","2020-04-03T00:00:00.000Z","2020-04-04T00:00:00.000Z","2020-04-05T00:00:00.000Z","2020-04-06T00:00:00.000Z","2020-04-07T00:00:00.000Z","2020-04-08T00:00:00.000Z","2020-04-09T00:00:00.000Z","2020-04-10T00:00:00.000Z","2020-04-11T00:00:00.000Z","2020-04-12T00:00:00.000Z","2020-04-13T00:00:00.000Z","2020-04-14T00:00:00.000Z","2020-04-15T00:00:00.000Z","2020-04-16T00:00:00.000Z","2020-04-17T00:00:00.000Z","2020-04-18T00:00:00.000Z","2020-04-19T00:00:00.000Z","2020-04-20T00:00:00.000Z","2020-04-21T00:00:00.000Z","2020-04-22T00:00:00.000Z","2020-04-23T00:00:00.000Z","2020-04-24T00:00:00.000Z","2020-04-25T00:00:00.000Z","2020-04-26T00:00:00.000Z","2020-04-27T00:00:00.000Z","2020-04-28T00:00:00.000Z","2020-04-29T00:00:00.000Z","2020-04-30T00:00:00.000Z","2020-05-01T00:00:00.000Z","2020-05-02T00:00:00.000Z","2020-05-03T00:00:00.000Z","2020-05-04T00:00:00.000Z","2020-05-05T00:00:00.000Z","2020-05-06T00:00:00.000Z","2020-05-07T00:00:00.000Z","2020-05-08T00:00:00.000Z","2020-05-09T00:00:00.000Z","2020-05-10T00:00:00.000Z","2020-05-11T00:00:00.000Z","2020-05-12T00:00:00.000Z","2020-05-13T00:00:00.000Z","2020-05-14T00:00:00.000Z","2020-05-15T00:00:00.000Z","2020-05-16T00:00:00.000Z","2020-05-17T00:00:00.000Z","2020-05-18T00:00:00.000Z","2020-05-19T00:00:00.000Z","2020-05-20T00:00:00.000Z","2020-05-21T00:00:00.000Z","2020-05-22T00:00:00.000Z","2020-05-23T00:00:00.000Z","2020-05-24T00:00:00.000Z","2020-05-25T00:00:00.000Z","2020-05-26T00:00:00.000Z","2020-05-27T00:00:00.000Z","2020-05-28T00:00:00.000Z","2020-05-29T00:00:00.000Z","2020-05-30T00:00:00.000Z","2020-05-31T00:00:00.000Z","2020-06-01T00:00:00.000Z","2020-06-02T00:00:00.000Z","2020-06-03T00:00:00.000Z","2020-06-04T00:00:00.000Z","2020-06-05T00:00:00.000Z","2020-06-06T00:00:00.000Z","2020-06-07T00:00:00.000Z","2020-06-08T00:00:00.000Z","2020-06-09T00:00:00.000Z","2020-06-10T00:00:00.000Z","2020-06-11T00:00:00.000Z","2020-06-12T00:00:00.000Z","2020-06-13T00:00:00.000Z","2020-06-14T00:00:00.000Z","2020-06-15T00:00:00.000Z","2020-06-16T00:00:00.000Z","2020-06-17T00:00:00.000Z","2020-06-18T00:00:00.000Z","2020-06-19T00:00:00.000Z","2020-06-20T00:00:00.000Z","2020-06-21T00:00:00.000Z","2020-06-22T00:00:00.000Z","2020-06-23T00:00:00.000Z","2020-06-24T00:00:00.000Z","2020-06-25T00:00:00.000Z","2020-06-26T00:00:00.000Z","2020-06-27T00:00:00.000Z","2020-06-28T00:00:00.000Z","2020-06-29T00:00:00.000Z","2020-06-30T00:00:00.000Z","2020-07-01T00:00:00.000Z","2020-07-02T00:00:00.000Z","2020-07-03T00:00:00.000Z","2020-07-04T00:00:00.000Z","2020-07-05T00:00:00.000Z","2020-07-06T00:00:00.000Z","2020-07-07T00:00:00.000Z","2020-07-08T00:00:00.000Z","2020-07-09T00:00:00.000Z","2020-07-10T00:00:00.000Z","2020-07-11T00:00:00.000Z","2020-07-12T00:00:00.000Z","2020-07-13T00:00:00.000Z","2020-07-14T00:00:00.000Z","2020-07-15T00:00:00.000Z","2020-07-16T00:00:00.000Z","2020-07-17T00:00:00.000Z","2020-07-18T00:00:00.000Z","2020-07-19T00:00:00.000Z","2020-07-20T00:00:00.000Z","2020-07-21T00:00:00.000Z","2020-07-22T00:00:00.000Z","2020-07-23T00:00:00.000Z","2020-07-24T00:00:00.000Z","2020-07-25T00:00:00.000Z","2020-07-26T00:00:00.000Z","2020-07-27T00:00:00.000Z","2020-07-28T00:00:00.000Z","2020-07-29T00:00:00.000Z","2020-07-30T00:00:00.000Z","2020-07-31T00:00:00.000Z","2020-08-01T00:00:00.000Z","2020-08-02T00:00:00.000Z","2020-08-03T00:00:00.000Z","2020-08-04T00:00:00.000Z","2020-08-05T00:00:00.000Z","2020-08-06T00:00:00.000Z","2020-08-07T00:00:00.000Z","2020-08-08T00:00:00.000Z","2020-08-09T00:00:00.000Z","2020-08-10T00:00:00.000Z","2020-08-11T00:00:00.000Z","2020-08-12T00:00:00.000Z","2020-08-13T00:00:00.000Z","2020-08-14T00:00:00.000Z","2020-08-15T00:00:00.000Z","2020-08-16T00:00:00.000Z","2020-08-17T00:00:00.000Z","2020-08-18T00:00:00.000Z","2020-08-19T00:00:00.000Z","2020-08-20T00:00:00.000Z","2020-08-21T00:00:00.000Z","2020-08-22T00:00:00.000Z","2020-08-23T00:00:00.000Z","2020-08-24T00:00:00.000Z","2020-08-25T00:00:00.000Z","2020-08-26T00:00:00.000Z","2020-08-27T00:00:00.000Z","2020-08-28T00:00:00.000Z","2020-08-29T00:00:00.000Z","2020-08-30T00:00:00.000Z","2020-08-31T00:00:00.000Z","2020-09-01T00:00:00.000Z","2020-09-02T00:00:00.000Z","2020-09-03T00:00:00.000Z","2020-09-04T00:00:00.000Z","2020-09-05T00:00:00.000Z","2020-09-06T00:00:00.000Z","2020-09-07T00:00:00.000Z","2020-09-08T00:00:00.000Z","2020-09-09T00:00:00.000Z","2020-09-10T00:00:00.000Z","2020-09-11T00:00:00.000Z","2020-09-12T00:00:00.000Z","2020-09-13T00:00:00.000Z","2020-09-14T00:00:00.000Z","2020-09-15T00:00:00.000Z","2020-09-16T00:00:00.000Z","2020-09-17T00:00:00.000Z"],[0,0,2,1,0,0,1,1,0,0,1,0,0,0,0,0,0,5,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,2,4,20,19,43,30,61,13,84,92,276,303,177,83,575,499,0,1388,815,36,2151,1032,1409,1846,1788,1705,1780,3880,2499,2978,3951,3851,4703,2603,4462,7657,4922,2180,5273,4298,1912,3931,3820,3894,4309,4372,3125,26849,3682,4971,3220,12490,2009,2,4925,2382,2775,-2188,2323,1649,1692,576,3743,3090,-2510,756,6,1213,407,658,1104,3537,694,1284,580,312,453,802,-165,810,636,0,63,358,882,767,251,403,340,15,358,-220,191,3326,559,1829,257,339,-766,352,767,611,579,343,211,404,545,425,727,526,407,152,344,458,467,811,641,284,373,517,81,0,1588,0,-719,2046,541,918,659,582,0,0,1375,475,0,1284,659,0,0,1625,0,928,534,841,0,0,2080,584,998,1062,1130,4,0,2551,725,0,1392,2728,1,0,0,3378,0,2734,3897,1,29,4112,6,4733,8,5559,3310,0,3568,1,0,0,15426,3602,4897,1955,3488,5472,6111,7462,0,10866,3173,4982,7092,7160,9047,0,1,19906,6544,9574,8951,9647,921,82,22977,8035,9964,10397]],"fixedtz":false,"tzone":"UTC","plugins":{"Crosshair":{"direction":"both"}}},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
+<p class="caption">
+Figure 2: Confirmed COVID-19 Cases in the France Overtime
+</p>
+</div>
+</div>
+<h2 id="confirmed-deaths-from-covid-19-in-the-france-overtime">Confirmed Deaths from COVID-19 in the France Overtime</h2>
+<p>Interactive display showing the number of COVID-19 deaths in the France since the first reported death.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:death-plot"></span>
+<div id="htmlwidget-bc5928e0b75a04835c88" style="width:624px;height:384px;" class="dygraphs html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bc5928e0b75a04835c88">{"x":{"attrs":{"axes":{"x":{"pixelsPerLabel":60,"drawAxis":true},"y":{"drawAxis":true}},"colors":["black","black"],"highlightSeriesOpts":[],"labels":["day","Number of Daily Deaths"],"legend":"auto","retainDateWindow":false,"stackedGraph":false,"fillGraph":true,"fillAlpha":0.2,"stepPlot":false,"drawPoints":false,"pointSize":1,"drawGapEdgePoints":false,"connectSeparatedPoints":false,"strokeWidth":1,"strokeBorderColor":"white","colorValue":0.5,"colorSaturation":1,"includeZero":false,"drawAxesAtZero":false,"logscale":false,"axisTickSize":3,"axisLineColor":"black","axisLineWidth":0.3,"axisLabelColor":"black","axisLabelFontSize":14,"axisLabelWidth":60,"drawGrid":false,"gridLineWidth":0.3,"rightGap":5,"digitsAfterDecimal":2,"labelsKMB":false,"labelsKMG2":false,"labelsUTC":true,"maxNumberWidth":6,"animatedZooms":false,"mobileDisableYTouch":true,"disableZoom":false,"showRangeSelector":true,"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":"midnightblue","rangeSelectorPlotStrokeColor":"midnightblue","interactionModel":"Dygraph.Interaction.defaultModel","highlightCircleSize":6,"highlightSeriesBackgroundAlpha":0.2,"hideOverlayOnMouseOut":false,"showRoller":true,"rollPeriod":1,"ylabel":"Number of Deaths per Day","xlabel":"Date","series":{"Number of Daily Deaths":{"axis":"y"}}},"scale":"daily","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2020-01-22T00:00:00.000Z","2020-01-23T00:00:00.000Z","2020-01-24T00:00:00.000Z","2020-01-25T00:00:00.000Z","2020-01-26T00:00:00.000Z","2020-01-27T00:00:00.000Z","2020-01-28T00:00:00.000Z","2020-01-29T00:00:00.000Z","2020-01-30T00:00:00.000Z","2020-01-31T00:00:00.000Z","2020-02-01T00:00:00.000Z","2020-02-02T00:00:00.000Z","2020-02-03T00:00:00.000Z","2020-02-04T00:00:00.000Z","2020-02-05T00:00:00.000Z","2020-02-06T00:00:00.000Z","2020-02-07T00:00:00.000Z","2020-02-08T00:00:00.000Z","2020-02-09T00:00:00.000Z","2020-02-10T00:00:00.000Z","2020-02-11T00:00:00.000Z","2020-02-12T00:00:00.000Z","2020-02-13T00:00:00.000Z","2020-02-14T00:00:00.000Z","2020-02-15T00:00:00.000Z","2020-02-16T00:00:00.000Z","2020-02-17T00:00:00.000Z","2020-02-18T00:00:00.000Z","2020-02-19T00:00:00.000Z","2020-02-20T00:00:00.000Z","2020-02-21T00:00:00.000Z","2020-02-22T00:00:00.000Z","2020-02-23T00:00:00.000Z","2020-02-24T00:00:00.000Z","2020-02-25T00:00:00.000Z","2020-02-26T00:00:00.000Z","2020-02-27T00:00:00.000Z","2020-02-28T00:00:00.000Z","2020-02-29T00:00:00.000Z","2020-03-01T00:00:00.000Z","2020-03-02T00:00:00.000Z","2020-03-03T00:00:00.000Z","2020-03-04T00:00:00.000Z","2020-03-05T00:00:00.000Z","2020-03-06T00:00:00.000Z","2020-03-07T00:00:00.000Z","2020-03-08T00:00:00.000Z","2020-03-09T00:00:00.000Z","2020-03-10T00:00:00.000Z","2020-03-11T00:00:00.000Z","2020-03-12T00:00:00.000Z","2020-03-13T00:00:00.000Z","2020-03-14T00:00:00.000Z","2020-03-15T00:00:00.000Z","2020-03-16T00:00:00.000Z","2020-03-17T00:00:00.000Z","2020-03-18T00:00:00.000Z","2020-03-19T00:00:00.000Z","2020-03-20T00:00:00.000Z","2020-03-21T00:00:00.000Z","2020-03-22T00:00:00.000Z","2020-03-23T00:00:00.000Z","2020-03-24T00:00:00.000Z","2020-03-25T00:00:00.000Z","2020-03-26T00:00:00.000Z","2020-03-27T00:00:00.000Z","2020-03-28T00:00:00.000Z","2020-03-29T00:00:00.000Z","2020-03-30T00:00:00.000Z","2020-03-31T00:00:00.000Z","2020-04-01T00:00:00.000Z","2020-04-02T00:00:00.000Z","2020-04-03T00:00:00.000Z","2020-04-04T00:00:00.000Z","2020-04-05T00:00:00.000Z","2020-04-06T00:00:00.000Z","2020-04-07T00:00:00.000Z","2020-04-08T00:00:00.000Z","2020-04-09T00:00:00.000Z","2020-04-10T00:00:00.000Z","2020-04-11T00:00:00.000Z","2020-04-12T00:00:00.000Z","2020-04-13T00:00:00.000Z","2020-04-14T00:00:00.000Z","2020-04-15T00:00:00.000Z","2020-04-16T00:00:00.000Z","2020-04-17T00:00:00.000Z","2020-04-18T00:00:00.000Z","2020-04-19T00:00:00.000Z","2020-04-20T00:00:00.000Z","2020-04-21T00:00:00.000Z","2020-04-22T00:00:00.000Z","2020-04-23T00:00:00.000Z","2020-04-24T00:00:00.000Z","2020-04-25T00:00:00.000Z","2020-04-26T00:00:00.000Z","2020-04-27T00:00:00.000Z","2020-04-28T00:00:00.000Z","2020-04-29T00:00:00.000Z","2020-04-30T00:00:00.000Z","2020-05-01T00:00:00.000Z","2020-05-02T00:00:00.000Z","2020-05-03T00:00:00.000Z","2020-05-04T00:00:00.000Z","2020-05-05T00:00:00.000Z","2020-05-06T00:00:00.000Z","2020-05-07T00:00:00.000Z","2020-05-08T00:00:00.000Z","2020-05-09T00:00:00.000Z","2020-05-10T00:00:00.000Z","2020-05-11T00:00:00.000Z","2020-05-12T00:00:00.000Z","2020-05-13T00:00:00.000Z","2020-05-14T00:00:00.000Z","2020-05-15T00:00:00.000Z","2020-05-16T00:00:00.000Z","2020-05-17T00:00:00.000Z","2020-05-18T00:00:00.000Z","2020-05-19T00:00:00.000Z","2020-05-20T00:00:00.000Z","2020-05-21T00:00:00.000Z","2020-05-22T00:00:00.000Z","2020-05-23T00:00:00.000Z","2020-05-24T00:00:00.000Z","2020-05-25T00:00:00.000Z","2020-05-26T00:00:00.000Z","2020-05-27T00:00:00.000Z","2020-05-28T00:00:00.000Z","2020-05-29T00:00:00.000Z","2020-05-30T00:00:00.000Z","2020-05-31T00:00:00.000Z","2020-06-01T00:00:00.000Z","2020-06-02T00:00:00.000Z","2020-06-03T00:00:00.000Z","2020-06-04T00:00:00.000Z","2020-06-05T00:00:00.000Z","2020-06-06T00:00:00.000Z","2020-06-07T00:00:00.000Z","2020-06-08T00:00:00.000Z","2020-06-09T00:00:00.000Z","2020-06-10T00:00:00.000Z","2020-06-11T00:00:00.000Z","2020-06-12T00:00:00.000Z","2020-06-13T00:00:00.000Z","2020-06-14T00:00:00.000Z","2020-06-15T00:00:00.000Z","2020-06-16T00:00:00.000Z","2020-06-17T00:00:00.000Z","2020-06-18T00:00:00.000Z","2020-06-19T00:00:00.000Z","2020-06-20T00:00:00.000Z","2020-06-21T00:00:00.000Z","2020-06-22T00:00:00.000Z","2020-06-23T00:00:00.000Z","2020-06-24T00:00:00.000Z","2020-06-25T00:00:00.000Z","2020-06-26T00:00:00.000Z","2020-06-27T00:00:00.000Z","2020-06-28T00:00:00.000Z","2020-06-29T00:00:00.000Z","2020-06-30T00:00:00.000Z","2020-07-01T00:00:00.000Z","2020-07-02T00:00:00.000Z","2020-07-03T00:00:00.000Z","2020-07-04T00:00:00.000Z","2020-07-05T00:00:00.000Z","2020-07-06T00:00:00.000Z","2020-07-07T00:00:00.000Z","2020-07-08T00:00:00.000Z","2020-07-09T00:00:00.000Z","2020-07-10T00:00:00.000Z","2020-07-11T00:00:00.000Z","2020-07-12T00:00:00.000Z","2020-07-13T00:00:00.000Z","2020-07-14T00:00:00.000Z","2020-07-15T00:00:00.000Z","2020-07-16T00:00:00.000Z","2020-07-17T00:00:00.000Z","2020-07-18T00:00:00.000Z","2020-07-19T00:00:00.000Z","2020-07-20T00:00:00.000Z","2020-07-21T00:00:00.000Z","2020-07-22T00:00:00.000Z","2020-07-23T00:00:00.000Z","2020-07-24T00:00:00.000Z","2020-07-25T00:00:00.000Z","2020-07-26T00:00:00.000Z","2020-07-27T00:00:00.000Z","2020-07-28T00:00:00.000Z","2020-07-29T00:00:00.000Z","2020-07-30T00:00:00.000Z","2020-07-31T00:00:00.000Z","2020-08-01T00:00:00.000Z","2020-08-02T00:00:00.000Z","2020-08-03T00:00:00.000Z","2020-08-04T00:00:00.000Z","2020-08-05T00:00:00.000Z","2020-08-06T00:00:00.000Z","2020-08-07T00:00:00.000Z","2020-08-08T00:00:00.000Z","2020-08-09T00:00:00.000Z","2020-08-10T00:00:00.000Z","2020-08-11T00:00:00.000Z","2020-08-12T00:00:00.000Z","2020-08-13T00:00:00.000Z","2020-08-14T00:00:00.000Z","2020-08-15T00:00:00.000Z","2020-08-16T00:00:00.000Z","2020-08-17T00:00:00.000Z","2020-08-18T00:00:00.000Z","2020-08-19T00:00:00.000Z","2020-08-20T00:00:00.000Z","2020-08-21T00:00:00.000Z","2020-08-22T00:00:00.000Z","2020-08-23T00:00:00.000Z","2020-08-24T00:00:00.000Z","2020-08-25T00:00:00.000Z","2020-08-26T00:00:00.000Z","2020-08-27T00:00:00.000Z","2020-08-28T00:00:00.000Z","2020-08-29T00:00:00.000Z","2020-08-30T00:00:00.000Z","2020-08-31T00:00:00.000Z","2020-09-01T00:00:00.000Z","2020-09-02T00:00:00.000Z","2020-09-03T00:00:00.000Z","2020-09-04T00:00:00.000Z","2020-09-05T00:00:00.000Z","2020-09-06T00:00:00.000Z","2020-09-07T00:00:00.000Z","2020-09-08T00:00:00.000Z","2020-09-09T00:00:00.000Z","2020-09-10T00:00:00.000Z","2020-09-11T00:00:00.000Z","2020-09-12T00:00:00.000Z","2020-09-13T00:00:00.000Z","2020-09-14T00:00:00.000Z","2020-09-15T00:00:00.000Z","2020-09-16T00:00:00.000Z","2020-09-17T00:00:00.000Z"],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,2,3,2,8,0,14,15,0,31,12,0,58,0,0,95,207,112,113,186,240,231,365,299,320,294,419,502,882,984,1122,1054,519,833,1417,544,1341,987,636,561,574,745,1438,753,761,642,395,547,531,544,516,390,369,242,437,367,427,289,218,166,137,304,333,275,178,243,80,70,263,348,83,351,104,0,579,131,-217,110,83,74,43,35,90,73,66,66,52,57,31,31,107,81,44,46,31,13,54,87,23,27,28,24,9,29,111,28,28,14,16,7,23,57,11,21,26,0,0,35,30,18,14,18,0,0,27,13,0,46,25,0,0,25,0,91,18,14,0,0,25,-12,7,10,10,0,0,17,14,0,15,27,0,0,0,29,0,11,19,0,0,0,1,47,17,18,0,0,24,0,0,0,74,9,1,15,16,0,32,20,0,10,29,26,26,20,18,0,0,2,38,35,14,82,1,1,55,49,49,47]],"fixedtz":false,"tzone":"UTC","plugins":{"Crosshair":{"direction":"both"}}},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
+<p class="caption">
+Figure 3: Confirmed Deaths from COVID-19 in the France Overtime
+</p>
+</div>
+</div>
+<p>Figure <a href="#fig:confirmed-plot">2</a> and Figure <a href="#fig:death-plot">3</a>, are two plots that allows us to interact with the graphics and thus notice the underlying trends which generally gets overlooked in Figure <a href="#fig:Covid-Cases-Rates">1</a>. We can notice from Figure <a href="#fig:confirmed-plot">2</a> that France witnessed a steep increase in the number of covid confirmned cases in early April which was brought down by the French governemnt by implementing lockdown. By around second week of July majority of bans were lifted in France which then possibly resulted in another increase in the number of confirmed cases in the intial weeks of September. This is being called as the possible second wave.<span class="citation" data-cites="smh">(Herald <a href="#ref-smh">2020</a>)</span></p>
+<h1 id="acknowledgements">Acknowledgements</h1>
+<p>This blog post constructed by R functions from packages as following: - distill <span class="citation" data-cites="distill">Allaire, Iannone, and Xie (<a href="#ref-distill">2020</a>)</span> - tidyverse <span class="citation" data-cites="tidyverse">Wickham et al. (<a href="#ref-tidyverse">2019</a>)</span> - knitr <span class="citation" data-cites="knitr">Xie (<a href="#ref-knitr">2020</a>)</span> - kableExtra <span class="citation" data-cites="kableExtra">Zhu (<a href="#ref-kableExtra">2019</a>)</span> - lubridate <span class="citation" data-cites="lubridate">Grolemund and Wickham (<a href="#ref-lubridate">2011</a>)</span> - plotly <span class="citation" data-cites="plotly">Sievert (<a href="#ref-plotly">2020</a>)</span> - dplyr <span class="citation" data-cites="dplyr">Wickham et al. (<a href="#ref-dplyr">2020</a>)</span> - xts <span class="citation" data-cites="xts">Ryan and Ulrich (<a href="#ref-xts">2020</a>)</span> - dygraphs <span class="citation" data-cites="dygraphs">Vanderkam et al. (<a href="#ref-dygraphs">2018</a>)</span></p>
+<div id="refs" class="references">
+<div id="ref-distill">
+<p>Allaire, JJ, Rich Iannone, and Yihui Xie. 2020. <em>Distill: ’R Markdown’ Format for Scientific and Technical Writing</em>. <a href="https://CRAN.R-project.org/package=distill">https://CRAN.R-project.org/package=distill</a>.</p>
+</div>
+<div id="ref-lubridate">
+<p>Grolemund, Garrett, and Hadley Wickham. 2011. “Dates and Times Made Easy with lubridate.” <em>Journal of Statistical Software</em> 40 (3): 1–25. <a href="http://www.jstatsoft.org/v40/i03/">http://www.jstatsoft.org/v40/i03/</a>.</p>
+</div>
+<div id="ref-smh">
+<p>Herald, The Sydney Morning. 2020. <a href="https://www.smh.com.au/world/europe/france-s-second-wave-grows-with-daily-covid-19-cases-passing-10-000-for-first-time-20200913-p55v4d.html">https://www.smh.com.au/world/europe/france-s-second-wave-grows-with-daily-covid-19-cases-passing-10-000-for-first-time-20200913-p55v4d.html</a>.</p>
+</div>
+<div id="ref-corona">
+<p>Krispin, Rami, and Jarrett Byrnes. 2020. <em>Coronavirus: The 2019 Novel Coronavirus Covid-19 (2019-nCoV) Dataset</em>. <a href="https://github.com/RamiKrispin/coronavirus">https://github.com/RamiKrispin/coronavirus</a>.</p>
+</div>
+<div id="ref-xts">
+<p>Ryan, Jeffrey A., and Joshua M. Ulrich. 2020. <em>Xts: EXtensible Time Series</em>. <a href="https://CRAN.R-project.org/package=xts">https://CRAN.R-project.org/package=xts</a>.</p>
+</div>
+<div id="ref-plotly">
+<p>Sievert, Carson. 2020. <em>Interactive Web-Based Data Visualization with R, Plotly, and Shiny</em>. Chapman; Hall/CRC. <a href="https://plotly-r.com">https://plotly-r.com</a>.</p>
+</div>
+<div id="ref-dygraphs">
+<p>Vanderkam, Dan, JJ Allaire, Jonathan Owen, Daniel Gromer, and Benoit Thieurmel. 2018. <em>Dygraphs: Interface to ’Dygraphs’ Interactive Time Series Charting Library</em>. <a href="https://CRAN.R-project.org/package=dygraphs">https://CRAN.R-project.org/package=dygraphs</a>.</p>
+</div>
+<div id="ref-tidyverse">
+<p>Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. “Welcome to the tidyverse.” <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.</p>
+</div>
+<div id="ref-dplyr">
+<p>Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2020. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.</p>
+</div>
+<div id="ref-wikipedia">
+<p>Wikipedia. 2020. <a href="https://en.wikipedia.org/wiki/COVID-19_pandemic_in_France#cite_note-francetvinfo3889133-11">https://en.wikipedia.org/wiki/COVID-19_pandemic_in_France#cite_note-francetvinfo3889133-11</a>.</p>
+</div>
+<div id="ref-knitr">
+<p>Xie, Yihui. 2020. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.</p>
+</div>
+<div id="ref-kableExtra">
+<p>Zhu, Hao. 2019. <em>KableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.</p>
+</div>
+</div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<script id="distill-bibliography" type="text/bibtex">
+@Manual{corona,
+    title = {coronavirus: The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Dataset},
+    author = {Rami Krispin and Jarrett Byrnes},
+    year = {2020},
+    note = {R package version 0.3.0.9000},
+    url = {https://github.com/RamiKrispin/coronavirus},
+  }
+
+  
+@Manual{kableExtra,
+    title = {kableExtra: Construct Complex Table with 'kable' and Pipe Syntax},
+    author = {Hao Zhu},
+    year = {2019},
+    note = {R package version 1.1.0},
+    url = {https://CRAN.R-project.org/package=kableExtra},
+  }
+
+
+@Manual{distill,
+    title = {distill: 'R Markdown' Format for Scientific and Technical Writing},
+    author = {JJ Allaire and Rich Iannone and Yihui Xie},
+    year = {2020},
+    note = {R package version 0.8},
+    url = {https://CRAN.R-project.org/package=distill},
+  }
+
+
+@Article{tidyverse,
+    title = {Welcome to the {tidyverse}},
+    author = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},
+    year = {2019},
+    journal = {Journal of Open Source Software},
+    volume = {4},
+    number = {43},
+    pages = {1686},
+    doi = {10.21105/joss.01686},
+  }
+  
+    @Book{ggplot2,
+    author = {Hadley Wickham},
+    title = {ggplot2: Elegant Graphics for Data Analysis},
+    publisher = {Springer-Verlag New York},
+    year = {2016},
+    isbn = {978-3-319-24277-4},
+    url = {https://ggplot2.tidyverse.org},
+  }
+  
+
+@Manual{knitr,
+    title = {knitr: A General-Purpose Package for Dynamic Report
+      Generation in R},
+    author = {Yihui Xie},
+    year = {2020},
+    note = {R package version 1.29},
+    url = {https://yihui.org/knitr/},
+  }
+  
+
+@Article{lubridate,
+    title = {Dates and Times Made Easy with {lubridate}},
+    author = {Garrett Grolemund and Hadley Wickham},
+    journal = {Journal of Statistical Software},
+    year = {2011},
+    volume = {40},
+    number = {3},
+    pages = {1--25},
+    url = {http://www.jstatsoft.org/v40/i03/},
+  }
+  
+
+@Manual{DT,
+    title = {DT: A Wrapper of the JavaScript Library 'DataTables'},
+    author = {Yihui Xie and Joe Cheng and Xianying Tan},
+    year = {2020},
+    note = {R package version 0.15},
+    url = {https://CRAN.R-project.org/package=DT},
+  }
+  
+
+@Book{plotly,
+    author = {Carson Sievert},
+    title = {Interactive Web-Based Data Visualization with R, plotly, and shiny},
+    publisher = {Chapman and Hall/CRC},
+    year = {2020},
+    isbn = {9781138331457},
+    url = {https://plotly-r.com},
+  }
+  
+  
+@Manual{dplyr,
+    title = {dplyr: A Grammar of Data Manipulation},
+    author = {Hadley Wickham and Romain François and Lionel {
+             Henry} and Kirill Müller},
+    year = {2020},
+    note = {R package version 1.0.2},
+    url = {https://CRAN.R-project.org/package=dplyr},
+  }
+  
+
+@Manual{reactable,
+    title = {reactable: Interactive Data Tables Based on 'React Table'},
+    author = {Greg Lin},
+    year = {2020},
+    note = {R package version 0.2.1},
+    url = {https://CRAN.R-project.org/package=reactable},
+  }
+
+@Manual{dplyr,
+    title = {dplyr: A Grammar of Data Manipulation},
+    author = {Hadley Wickham and Romain François and Lionel {
+             Henry} and Kirill Müller},
+    year = {2020},
+    note = {R package version 1.0.2},
+    url = {https://CRAN.R-project.org/package=dplyr},
+  }
+
+
+@Manual{xts,
+    title = {xts: eXtensible Time Series},
+    author = {Jeffrey A. Ryan and Joshua M. Ulrich},
+    year = {2020},
+    note = {R package version 0.12-0},
+    url = {https://CRAN.R-project.org/package=xts},
+  }
+
+
+@Manual{dygraphs,
+    title = {dygraphs: Interface to 'Dygraphs' Interactive Time Series Charting Library},
+    author = {Dan Vanderkam and JJ Allaire and Jonathan Owen and Daniel Gromer and Benoit Thieurmel},
+    year = {2018},
+    note = {R package version 1.1.1.6},
+    url = {https://CRAN.R-project.org/package=dygraphs},
+  }
+
+  
+@misc{wikipedia,
+	url = {https://en.wikipedia.org/wiki/COVID-19_pandemic_in_France#cite_note-francetvinfo3889133-11},
+	abstract = {COVID-19 pandemic in France},
+	urldate = {2020-09-16},
+	author = {Wikipedia},
+	year = {2020}
+} 
+
+@misc{smh,
+	url = {https://www.smh.com.au/world/europe/france-s-second-wave-grows-with-daily-covid-19-cases-passing-10-000-for-first-time-20200913-p55v4d.html},
+	abstract = {France's second wave grows, with daily COVID-19 cases passing 10,000 for first time},
+	urldate = {2020-09-13},
+	author = {The Sydney Morning Herald},
+	year = {2020}
+} 
+
+</script>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

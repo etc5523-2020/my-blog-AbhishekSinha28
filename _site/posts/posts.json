@@ -1,19 +1,19 @@
 [
   {
-    "path": "posts/welcome/",
-    "title": "Welcome to My ETC5523 Blog",
-    "description": "Stay tuned for more interesting analysis and insights about the Corona Virus pandemic across the world.",
+    "path": "posts/post2/",
+    "title": "Blog 2: COVID-19 trends from France",
+    "description": "A look into the coronavirus statistics in France!",
     "author": [
       {
         "name": "Abhishek Sinha",
-        "url": "asin0080@student.monash.edu"
+        "url": {}
       }
     ],
-    "date": "2020-09-04",
+    "date": "2020-09-18",
     "categories": [],
     "preview": {},
-    "last_modified": "2020-09-05T01:09:16+10:00",
-    "input_file": "welcome.utf8.md"
+    "last_modified": "2020-09-19T01:58:47+10:00",
+    "input_file": {}
   },
   {
     "path": "posts/post1/",
@@ -28,7 +28,23 @@
     "date": "2020-09-04",
     "categories": [],
     "preview": {},
-    "last_modified": "2020-09-05T01:09:23+10:00",
-    "input_file": "post1.utf8.md"
+    "last_modified": "2020-09-05T01:15:23+10:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to My ETC5523 Blog",
+    "description": "Stay tuned for more interesting analysis and insights about the Corona Virus pandemic across the world.",
+    "author": [
+      {
+        "name": "Abhishek Sinha",
+        "url": "asin0080@student.monash.edu"
+      }
+    ],
+    "date": "2020-09-04",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-09-05T01:09:16+10:00",
+    "input_file": {}
   }
 ]

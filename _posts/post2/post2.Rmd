@@ -1,0 +1,213 @@
+---
+title: "Blog 2: COVID-19 trends from France"
+description: |
+  A look into the coronavirus statistics in France!
+author:
+  - name: Abhishek Sinha 
+    email: asin0080@student.monash.edu
+    affiliation: ETC5523, Monash University
+date: 09-18-2020
+output:
+  distill::distill_article:
+    self_contained: false
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+
+```{r load-libraries}
+library(coronavirus)
+library(tidyverse)
+library(lubridate)
+library(knitr)
+library(dplyr)
+library(xts) 
+library(kableExtra)
+library(plotly)
+library(dygraphs)
+```
+
+# Prelude
+
+On Jan 24, 2020, the French Governemnt, confirmed the first human case of infection with SARS-CoV-2 in both Europe and France in Bordeaux[@wikipedia]. The first five confirmed cases were all individuals who had recently arrived from China. Since then, France has been facing the heat of the Coronavirus pandemic. In this blog, we take a further look into the magnitude of the country's Covid-19 numbers.
+
+# Data Description
+
+The data is obtained from R package `coronavirus`[@corona] provided by RamiKrispin, which contains COVID-19 data from 188 countries or regions, and the raw data collected and arranged by the Johns Hopkins University Center for Systems Science and Engineering (JHU CCSE). In this blog, I will focus on France data, which contains 7,920 observations from 2020-01-22 to 2020-09-17.
+
+```{r inout-data}
+#load coronavirus dataset
+
+data("coronavirus")
+France <- coronavirus %>% 
+  filter(country=="France", date <= "2020-09-18") %>%
+  select(-province) %>% 
+  mutate(month = month(date, label = TRUE))
+```
+
+## Population data
+
+The population data is collected from the United Nations Department for Economic and Social Affairs(UNDESA). It was downloaded from [UNDESA]("https://population.un.org/wpp/Download/Standard/CSV/").   
+
+```{r}
+#read population data
+world_population <- read_csv(here::here("data/WPP2019_TotalPopulationBySex.csv")) 
+
+# filter France
+pop_france <- world_population %>% 
+  filter(Location == "France",
+         Time == 2019) %>% 
+  select(PopTotal)
+
+```
+
+
+# Analysis
+
+To understand the rate of new cases in France, the Table \@ref(tab:covid-rate) helps us to find the rates of confirmed cases, active cases, recovered cases and death from January to date in 2020. This table gives us an overview of how the situation changed in France from the time of the first case in January. We can notice that the rate of the confirmed cases increased drastically in April. It is then when France implemented strict lockdown as a measure to contain the spread of virus and thus we can see a decline in new cases. We can see that mortality rate has been kept low by France. We can also notice a hint of possible second wave in France as confirmed case rates reached an all time high in September[@smh].
+
+```{r covid-rate}
+France %>% 
+  group_by(type,month) %>%
+  summarise(total_cases = sum(cases)) %>%
+  pivot_wider(names_from = type, 
+              values_from = total_cases) %>%
+  mutate(active = confirmed - death - recovered) %>%
+  mutate(active_total = cumsum(active),
+         population = pop_france$PopTotal*1000) %>%
+  mutate(confirmed_rates = ((1000*confirmed/population) + 0.01),
+         active_rates = ((1000*active_total/population) +0.01),
+         recovered_rates = ((1000*recovered/population) +0.01),
+         dead_rates = ((1000*death/population) +0.01)) %>% 
+  select(-c(2:7)) %>% 
+  pivot_longer(2:5, 
+               names_to = "type", 
+               values_to = "rate") %>% 
+  mutate(rate = round(rate,4)) %>% 
+  pivot_wider(names_from = month, 
+              values_from = rate) %>% 
+  kable(caption = "Covid Cases Rate in France") %>% 
+  kable_styling(bootstrap_options = 
+                  c("striped", "condensed"), 
+                  full_width = F, 
+                  position = "center",
+                  latex_options = c("hold_position"))
+  
+```
+
+```{r Covid-Cases-Rates, fig.cap = "COVID cases in France"}
+data_2_vis <- France %>% 
+  group_by(type,date) %>%
+  summarise(total_cases = sum(cases)) %>%
+  pivot_wider(names_from = type, 
+              values_from = total_cases) %>%
+  ggplot(aes(x = date, y = confirmed) ) +
+  geom_line(color = "#1F9E8E")  +
+  theme_bw() +
+  ggtitle("Confirmed Covid cases (rates) in France") 
+
+ggplotly(data_2_vis)
+```
+
+The rates of corona virus cases in France over time is displayed in Figure \@ref(fig:Covid-Cases-Rates).
+From this figure we can look at the trend. This trend can give us an idea about the approach taken by the French government and how successful are those measures. We can see that the cases started to rise very quickly in France, reaching its peak in early April. This sudden rise can be attributed to the Mulhouse cluster outbreak. The Christian Open Door Church annual gathering between 17 and 24 February in Mulhouse was attended by about 2,500 people, at least half of whom are believed to have contracted the virus. To put a stop on this sudden rise the French President 'Emmanuel Macron' announced the beginning of a lockdown period from the 17 March at noon. It was initially planned for 15 days, then for 30 days, but on 13 April, he announced that the lockdown period would be extended until 11 May.[@wikipedia]
+
+## Confirmed COVID-19 Cases in the France Overtime 
+Interactive display showing the confirmed number of COVID-19 cases in the France since the first case. 
+
+```{r uk-confirmed}
+france_confirmed <- France %>% 
+  filter(type == "confirmed") %>% 
+  group_by(date) %>%
+  summarise(cases = sum(cases))
+```
+
+```{r uk-death}
+france_death <- France %>% 
+  filter(type == "death") %>% 
+  group_by(date) %>%
+  summarise(cases = sum(cases))
+```
+
+```{r confirmed-plot, fig.align='center', fig.cap = "Confirmed COVID-19 Cases in the France Overtime"}
+# create xts to use dygraph
+france_confirmed_dat <- xts(x = france_confirmed$cases, 
+                        order.by = france_confirmed$date)
+
+# create plot
+france_confirmed_plot <- dygraph(france_confirmed_dat) %>%
+  dyOptions(labelsUTC = TRUE, 
+            # fill the graph
+            fillGraph=TRUE, 
+            # change shade
+            fillAlpha=0.2,
+            # do not include a grid
+            drawGrid = FALSE, 
+            colors="grey") %>%
+  # change the color to midnight blue
+  dyRangeSelector(fillColor = "midnightblue",
+                  strokeColor = "midnightblue") %>%
+  # change so it draws a line through both the date and the case number
+  dyCrosshair(direction = "both") %>%
+  dyHighlight(highlightCircleSize = 6, 
+              highlightSeriesBackgroundAlpha = 0.2, 
+              hideOnMouseOut = FALSE)  %>%
+  dyRoller(rollPeriod = 1) %>%
+  dyAxis("y", label = "Number of Cases") %>%
+  dyAxis("x", label = "Date") %>%
+  dySeries("V1", label = "Number of New Daily Cases") 
+
+france_confirmed_plot
+```
+
+## Confirmed Deaths from COVID-19 in the France Overtime
+Interactive display showing the number of COVID-19 deaths in the France since the first reported death.
+
+```{r death-plot, fig.align='center', fig.cap = "Confirmed Deaths from COVID-19 in the France Overtime"}
+france_death_dat <- xts(x = france_death$cases, 
+                        order.by = france_death$date)
+
+# create plot
+france_death_plot <- dygraph(france_death_dat) %>%
+  dyOptions(labelsUTC = TRUE, 
+            # fill the graph
+            fillGraph=TRUE, 
+            # change shade
+            fillAlpha=0.2,
+            # do not include a grid
+            drawGrid = FALSE, 
+            colors="black") %>%
+  # change the color to midnight blue
+  dyRangeSelector(fillColor = "midnightblue",
+                  strokeColor = "midnightblue") %>%
+  # change so it draws a line through both the date and the case number
+  dyCrosshair(direction = "both") %>%
+  dyHighlight(highlightCircleSize = 6, 
+              highlightSeriesBackgroundAlpha = 0.2, 
+              hideOnMouseOut = FALSE)  %>%
+  dyRoller(rollPeriod = 1) %>%
+  dyAxis("y", label = "Number of Deaths per Day") %>%
+  dyAxis("x", label = "Date") %>%
+  dySeries("V1", label = "Number of Daily Deaths") 
+
+france_death_plot
+```
+
+Figure \@ref(fig:confirmed-plot) and Figure \@ref(fig:death-plot), are two plots that allows us to interact with the graphics and thus notice the underlying trends which generally gets overlooked in Figure \@ref(fig:Covid-Cases-Rates). We can notice from 
+Figure \@ref(fig:confirmed-plot) that France witnessed a steep increase in the number of covid confirmned cases in early April which was brought down by the French governemnt by implementing lockdown. By around second week of July majority of bans were lifted in France which then possibly resulted in another increase in the number of confirmed cases in the intial weeks of September. This is being called as the possible second wave.[@smh]
+
+# Acknowledgements
+
+This blog post constructed by R functions from packages as following:
+- distill @distill
+- tidyverse @tidyverse
+- knitr @knitr
+- kableExtra @kableExtra
+- lubridate @lubridate
+- plotly @plotly
+- dplyr @dplyr
+- xts @xts
+- dygraphs @dygraphs
