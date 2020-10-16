@@ -1,5 +1,21 @@
 [
   {
+    "path": "posts/self-review/",
+    "title": "Blog 3: Reviewing My Shiny App",
+    "description": "Reviewing my own Shiny app!",
+    "author": [
+      {
+        "name": "Abhishek Sinha",
+        "url": {}
+      }
+    ],
+    "date": "2020-10-16",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-10-16T21:42:58+11:00",
+    "input_file": "post3.utf8.md"
+  },
+  {
     "path": "posts/post2/",
     "title": "Blog 2: COVID-19 trends from France",
     "description": "A look into the coronavirus statistics in France!",
@@ -12,8 +28,8 @@
     "date": "2020-09-18",
     "categories": [],
     "preview": {},
-    "last_modified": "2020-09-19T01:58:47+10:00",
-    "input_file": {}
+    "last_modified": "2020-10-10T00:17:32+11:00",
+    "input_file": "post2.utf8.md"
   },
   {
     "path": "posts/post1/",

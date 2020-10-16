@@ -1,0 +1,63 @@
+---
+title: "Blog 3: Reviewing My Shiny App"
+description: |
+  Reviewing my own Shiny app!
+author:
+  - name: Abhishek Sinha 
+    email: asin0080@student.monash.edu
+    affiliation: ETC5523, Monash University
+date: 10-16-2020
+output:
+  distill::distill_article:
+    self_contained: false
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+
+
+# Prelude
+
+Self-reflection is an important part of the learning process which helps to build indepndent and self-directed learners. Thus, in this blog, you will read about my relection on my own work.
+
+# Introducing my Shiny App
+
+The purpose of my shiny web app is to enable users to get insights into the state of Coronavirus in Australia by comparing data between chosen states and territories overtime. 
+
+The app aims at visualizing : 
+
+* The temporal trends of the spread of confirmed COVID-19 cases in Australia to date across states
+* Spread of Covid related death cases across Australian states
+* Tabular representation of factors like Recovery Rate, Active Cases rate across Staes and months.
+
+
+The app is broken down into tabs to enhance its usability. To help user get a gist of the app there is an 'About' tab. Also included is a ‘How to begin' tab detailing how to use the app and how I drew insights on the situation of Coronavirus using the app. The analysis is divided across three tabs which the user can easily toggle around to look at different factors of the Coronavirus.
+
+# Self Review
+
+
+### What I did well?
+1. I designed my app to be simple and easy to navigate. The tabs are placed at the top of the app with self explanatory tab names allowing for easy navigation across the app.   
+2. I used plotly to plot data variables and visualize insights. Using plotly allows user to hover over the plot to analyse underline numbers and the plots are easy to understand and interpret.  
+3. Using tabular representation to analyse covid related rates allowed me to include multiple factors in one table. This helped me to present a holistic view of the covid data and help user look and compare recovery rates, active cases rates together.  
+4. Lastly, I have ensured that the heading for the line charts automatically update when a new country is selected by the user. This helps the user understand what the data represents just by looking at the heading.  
+
+
+### What can I improve on?
+1. I could definitely improve the placement of the explanations for individual tabs. I placed all my insights into one ‘How to Begin’ tab but later realised that it would have been more user friendly if details about using app was in ‘How to Begin’ tab and explanation about individual data plots were in respective tabs.  
+2. Another improvement I realised would be including a map plot. A tab which analyses the covid numbers across states on a map which will help the reader to get a gist yet a complete picture of the situation of Covid in Australian states which can be further broke down and analysed.  
+
+
+### Some things I'd like to add that is plausible
+1. I would like to add an input selection for a date range. A drop down menu, a calendar, which allows user to select specific dates to analyse a particular time period.  
+2. In addition to the case numbers and trends of spread of COIVD-19, a timeline of significant events related to COVID-19 such as enforcing/lifting restrictions, lockdowns could be include inline with the plots providing a more informative analysis.   
+
+
+### Some things I’d like to add that cannot be done yet due to limitation in data or technology
+The dataset I used does not include information about the demographics of the cases. Having information like age, income, gender, ethnicity can help provide a more through analysis and present unique visualisations answering questions like:
+
+1. How our financial strength shape our response to Covid.  
+2. Australia is a country with multi-ethnic population. Which ethnic population faced the heat of Covid.  
