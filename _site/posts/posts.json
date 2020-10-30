@@ -1,5 +1,21 @@
 [
   {
+    "path": "posts/peer-rpackage-review/",
+    "title": "Blog 4: Reviewing Peer's R Package",
+    "description": "Reviewing the \"CovChina\" R Package!",
+    "author": [
+      {
+        "name": "Abhishek Sinha",
+        "url": {}
+      }
+    ],
+    "date": "2020-10-30",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-10-30T23:44:51+11:00",
+    "input_file": "post4.utf8.md"
+  },
+  {
     "path": "posts/self-review/",
     "title": "Blog 3: Reviewing My Shiny App",
     "description": "Reviewing my own Shiny app!",

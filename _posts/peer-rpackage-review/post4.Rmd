@@ -1,0 +1,72 @@
+---
+title: "Blog 4: Reviewing Peer's R Package"
+description: |
+  Reviewing the "CovChina" R Package!
+author:
+  - name: Abhishek Sinha 
+    email: asin0080@student.monash.edu
+    affiliation: ETC5523, Monash University
+date: 10-30-2020
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+
+
+# Prelude
+
+Peer review is an important part of any assignment as it allows both the reviewer and person whose work is reviewed opportunities to learn. The goal is to provide valuable, yet constructive feedback to help one improve their learning and refine their skills. In this blog, you will read my evaluation of my peer's work.
+
+# Intoduction
+
+I will be reviewing a package written by Zeyu Liu and is titled [`CovChina`] (https://github.com/etc5523-2020/r-package-assessment-zyliu178). This package is designed to provide the users with an interactive shiny application that presents the **Trend of total confirmed cases in China**.
+
+# What did I think this package would do? Did it do it?
+
+First, I expected a launch app() function, as claimed, provided to us that runs the embedded shiny application directly from console saving time. It works smoothly in Zeyu's package. Based on the limited information provided on Readme, I expected to see an interactive plot which shows the trend in total confirmed cases in China. The package did it well.
+
+A detailed expectation and package's response can be found below:
+
+- the package was easily downloaded from github version with initial debugging for correct package name
+- the app was placed correctly in the inst/app folder and the shiny application was viewed to the user using the launch_app   with great ease.
+- The data sets also could be loaded as expected.
+- Additional functions like `select_city()` & `plot_city()` worked well with some modifications to the R code and with correct input.
+- the unit testing passed with no errors
+- The DESCRIPTION file is well organized and clearly states the requirement of the package and its dependencies as well.
+- Valid selection of the appropriate license.
+- README is limited and the package name mentioned is incorrect.
+- The vignette is informative as compared to Readme with correct package name and information about the additional functionality, but has limited instruction on running the app.
+- The package passed all the R-CMD-Checks
+
+- Additionally there was a well customized pkgdown site, which sums it all for us and gives the first and detailed insight
+
+# Suggested Improvements
+
+Although this package has successfully passed my expectations, there are some areas for improvement:
+
+- Unfortunately, there isn’t sufficient information in the Readme or pkgdown site to get started. Documentation on launch_app() function used is there, however the information provided could be improved. For example, the launch_app() function can use an example on how to use it as it would be beneficial for the user, especially if the user is not aware of the context and the functionality the app offers for analysis.
+- There are discrepancies in the package name reported on Readme, Vignette and the pkgdown website. It makes it difficult to install and run package. A good measure should be to cross check these files.
+- A more detailed 'about tab' can be included in the shiny app to help user to understand the working of interactive tools. For example, in the table tab on the top right corner there is a search box but I am not sure how to use it, or is it required there at all.
+
+# What I've learned from reviewing the package?
+
+After reviewing this package, I learned the importance of a README file in providing a big picture overview of the package. Readme act as a communication tool between the package developer and the users. Without proper documentation, the users will find it difficult to place the use of the package in their analysis.
+
+
+## Appendix 
+
+#### Documentation
+- [X] **Installation instructions:** for the package is found in README
+- [ ] **Vignette(s)** demonstrating major functionality that runs successfully locally
+- [X] **Function Documentation:** for all exported functions in R help
+- [ ] **Examples** for all exported functions in R Help that run successfully locally
+
+#### Functionality
+- [X] **Installation:** Installation succeeds as documented.
+- [X] **Functionality:** Any functional claims of the software been confirmed.
+- [X] **Automated tests:** Unit tests cover essential functions of the package and a reasonable range of inputs and conditions. All tests pass on the local machine.
